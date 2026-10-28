@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: crystallang/crystal:latest
+    steps:
+      # SHA-pinned (actions/checkout v4.2.2) — do not float the tag.
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - name: Check formatting
+        run: crystal tool format --check
+
+      - name: Run mock spec (offline)
+        run: crystal spec spec/unirate_spec.cr
+
+      - name: Build example
+        run: crystal build --no-codegen examples/quickstart.cr

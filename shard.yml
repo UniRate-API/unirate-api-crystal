@@ -1,0 +1,18 @@
+name: unirate-api
+version: 0.1.0
+description: |
+  Official Crystal client for the UniRate API — free currency exchange rates,
+  historical data, and VAT rates. Zero dependencies (Crystal standard library only).
+
+authors:
+  - Unirate Team
+
+license: MIT
+
+crystal: ">= 1.0.0"
+
+repository: https://github.com/UniRate-API/unirate-api-crystal
+documentation: https://github.com/UniRate-API/unirate-api-crystal
+
+# No `dependencies:` key — this client is 100% Crystal standard library
+# (HTTP::Client + JSON + URI). Zero third-party shards.
